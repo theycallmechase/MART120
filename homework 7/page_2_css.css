@@ -1,0 +1,14 @@
+#green {
+  color: green;
+  font-family: Times new roman;
+  font-size: 30px;
+}
+.cyancolor {
+  color: cyan;
+  font-family:"Comic Sans MS", cursive, sans-serif;
+  font-size: 40px;
+}
+.redcolor {
+  color:yellow;
+  font-style:bold;
+}

@@ -1,0 +1,8 @@
+.cyancolor {
+  color: cyan;
+  font-family:"Comic Sans MS", cursive, sans-serif;
+  font-size: 40px;
+}
+
+<span class="blueColor">New Color</span>
+/* Add a new style and change the class name to match */
