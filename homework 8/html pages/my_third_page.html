@@ -1,0 +1,68 @@
+<html>
+<title>My third page</title>
+
+<head>
+  
+   <style>
+    span {background-color:cyan;}
+  </style>
+  
+  <h3> Contact us </h3>
+  
+  <script>
+    function getData() {
+      var name = document.getElementById("txtName").value;
+      if(name == "") {document.getElementById("txtName").style.backgroundColor  = "red";}
+       if(name == "") {document.getElementById("txtName").focus();}
+      else{document.getElementById("txtName").style.backgroundColor  = "white"; document.getElementById("txtPhone").style.backgroundColor  = "white"; document.getElementById("txtSsn").style.backgroundColor  = "white"; document.getElementById("txtYes").style.backgroundColor  = "white"; }
+      var phone = document.getElementById("txtPhone").value;
+      if(phone == "") {document.getElementById("txtPhone").style.backgroundColor  = "red";}
+      
+      var ssn = document.getElementById("txtSsn").value;
+      if(ssn == "") {document.getElementById("txtSsn").style.backgroundColor  = "red";}
+      var yes = document.getElementById("txtYes").value;
+      if(yes == "no") {document.getElementById("txtYes").style.backgroundColor  = "red";}
+      if(yes == "") {document.getElementById("txtYes").style.backgroundColor  = "red";}
+     
+      // get the new field value
+      // print out the new field's value     
+     else( document.getElementById("finalResult").innerHTML = "thank you for submitting")
+    
+    
+    }
+    function changeColor() {document.body.style.color = "blue"}
+   
+  </script>
+</head>
+
+<body>
+  <!-- add another field -->
+  <table>
+    <tr>
+      <td>what is your name</td>
+      <td><input type="text" id="txtName"></td>
+    </tr>
+    <tr>
+      <td>what is your email</td>
+      <td><input type="text" id="txtPhone"></td>
+    </tr>
+    <tr>
+      <td>what is your ssn#</td>
+      <td><input type="text" id="txtSsn"></td>
+    </tr>
+  <tr>
+      <td>do you accept? <br> (type "yes" if you do)</td>
+      <td><input type="text" id="txtYes"></td>
+    </tr>
+    
+    
+      <td colspan="2"><button id="btnSubmit" onClick="getData();">Submit</button></td>
+    </tr>
+  </table>
+  <div id="finalResult"></div>
+  
+  <h3> be sure to thank <button type="button" class="btn btn-primary">Bootstrap</button> for being a resource
+  
+</body>
+
+</html>
