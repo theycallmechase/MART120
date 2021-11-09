@@ -5,37 +5,138 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
         <script>
 
-function setup() {
-  createCanvas(400, 400);
+var headX = 250;
+var headY = 100;
+var headDirection = 1;
+
+var bodyX = 200;
+var bodyY = 185;
+var bodyDirection = 3;
+
+var size = 30;
+var count = 7;
+var sizeDirection = 2;
+function setup()
+{
+  fill(008080)  
+  createCanvas(500, 600);
 }
 
-function setup() {
-  createCanvas(400, 400);
-}
+function draw()
+{
+ 
+  background(120,45,78);
+    textSize(22)
+    text("bold and brash", 10,80);
+  
+ 
+ 
+  // head 4
+    fill(008080);
+   triangle(headX,headY,150, 175, 250, 75);
+  point(220, 100);
+    headX+=headDirection;
+    if(headX >= 418 || headX <= 82)
+    {
+        headDirection *= -1;
+    } 
+  // head 1
+    fill(008080);
+    ellipse(headX,headY,100,70,60);
+  point(220, 100);
+    headX+=headDirection;
+    if(headX >= 418 || headX <= 82)
+    {
+        headDirection *= -1;
+    }
+   // head 2
+    fill(008080);
+    ellipse(headX,headY,10, 20);
+  point(220, 100);
+    headX+=headDirection;
+    if(headX >= 418 || headX <= 82)
+    {
+        headDirection *= -1;
+    }
+  // head 3
+    fill(008080);
+    point(headX,headY,10, 20);
+  point(220, 100);
+    headX+=headDirection;
+    if(headX >= 418 || headX <= 82)
+    {
+        headDirection *= -1;
+    }
 
-function draw() {
-  background(220);
-text('Chase Proctor', 310, 330);
-  triangle(215, 199, 250, 120, 210, 120);
-  rect(250,140,20,80);
-  triangle(150, 175, 250, 75, 155,120);
- triangle(170, 280, 248, 150,190, 300); 
-  triangle(243, 280, 208, 210,270, 265);
-  ellipse(230,100,70,60);
-  ellipse(150,150,30,60);
-   line(202, 158, 210, 148);
+// head 5
+    fill(008080);
+    point(headX,headY,10, 20);
+  point(220, 100);
+    headX+=headDirection;
+    if(headX >= 418 || headX <= 82)
+    {
+        headDirection *= -1;
+    }
+
+  fill(008080)
+  // nose
+   
+  ellipse(150,150,30,60); 
+  
+  
+
+    // body 1
+    fill(008080);
+   ellipse(180,bodyY,25,65);
+    bodyY += bodyDirection;
+    if(bodyY <= 0 || bodyY >= 450 )
+    {
+        bodyDirection *= -1;
+    }
+  // body 2
+    fill(008080);
+   ellipse(260,bodyY,35,85);
+    bodyY += bodyDirection;
+    if(bodyY <= 0 || bodyY >= 450 )
+    {
+        bodyDirection *= -1;
+    }
+    fill(008080)
+    
+    // right arm
+   rect(250,140,20,80);
+     ellipse(275,210,30,50);
+    // left arm
+    line(202, 158, 210, 148);
   line(195, 200, 180, 210);
   line(205, 220, 180, 210);
-   ellipse(180,300,25,65);
-  ellipse(260,300,35,85);
-    ellipse(275,210,30,50);
+  line(202, 158, 196, 200);
+    // left leg
+   triangle(170, 280, 248, 150,190, 300);  
+  
+    // right leg
+    triangle(243, 280, 208, 210,270, 265);
+  
+    // torso
+  triangle(215, 199, 250, 120, 210, 120); 
   triangle(265, 258, 250, 125, 200, 225);
   triangle(270, 190, 250, 125, 200, 225);
-  ellipse(220,100,10, 20);
-  point(220, 100);
-  line(202, 158, 196, 200);
+  
+    fill(120);
+    textSize(size);
+    size+= sizeDirection;
+    count++;
+    if(count > 5)
+    {
+        sizeDirection *=-1;
+        count = 0;
+    }
  
+    text("Chase Proctor",270,500 );
+
+
 }
+
 
 
 </script>
