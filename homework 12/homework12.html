@@ -1,0 +1,196 @@
+<html>
+
+<head>
+  <script 
+// x and y for my skittle
+var characterX = 100;
+var characterY = 100;
+// key codes 
+// up key:38,down:40,left:37,right:39
+var up = 38; 
+var down = 40;
+var left = 37;
+var right = 39;
+
+// shape poop 1
+var shapeX = 30;
+var shapeY = 50;
+var shapeXSpeed;
+var shapeYSpeed;
+
+// shape poop 2
+var x = 50;
+var y = 50;
+var diameter = 25;
+
+
+
+// poop on click
+var mouseShapeX;
+var mouseShapeY;
+function setup()
+{
+    createCanvas(500, 600);
+    // get a random speed when the it first starts
+    shapeXSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+    shapeYSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+}
+
+function draw()
+{
+    background(255,193,204);
+    stroke(0);
+    fill(0);
+    // top border and subsequent lines
+    rect(0,0,width,10);
+  rect(0,120,400,10);
+  rect(100,240,400,10);
+  rect(0,360,400,10);
+  rect(100,480,400,10);
+    // left border
+    rect(0,0,10,height);
+    // bottom border
+    rect(0, height-10,width, 10);
+    // right upper border
+    rect(width-10,0,10,height-120);
+
+    // exit message
+    textSize(16);
+    text("this way to small intestine", width-200,height-50)
+  
+    // game title
+    textSize(16);
+    text("escape the large intestine", width-400,height-560)
+
+    //red skittle
+    fill(200,0,0);
+    circle(characterX,characterY,40);
+
+    // movement speed
+    if(keyIsDown(up))
+    {
+        characterY -= 2;   
+    }
+    if(keyIsDown(down))
+    {
+        characterY += 4;   
+    }
+    if(keyIsDown(left))
+    {
+        characterX -= 7;   
+    }
+    if(keyIsDown(right))
+    {
+        characterX += 7;   
+    }
+
+    // poop1
+    fill(123,92,0);
+    // draw the shape
+    ellipse(shapeX, shapeY, 120,30);
+  
+   // poop2
+  fill (140,100,5)
+  ellipse (x,y,170,100)
+  
+  if (x <= 250) {
+    x += 10;
+  } else if (x == 250 && x <= 300) {
+    x += 2;
+    console.log("second else if for x");
+  } else if (x != 300) {
+    x = 50;
+  }
+
+  if (y <= 200) {
+    y += 3;
+  } else if (y == 250 && y <= 300) {
+    y += 1;
+    console.log("second else if for y");
+  } else if (y != 300) {
+    y = 50;
+  }
+  if (diameter <= 200) {
+    diameter += 8;
+  } else if (diameter == 200 && diameter <= 300) {
+    diameter += 2;
+    console.log("second else if for diameter");
+  } else if (diameter != 300) {
+    diameter = 25;
+  }
+    
+
+  
+
+     //random speed
+     shapeXSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+     shapeYSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+
+    // movement
+    shapeX += 10;
+    shapeY += shapeYSpeed;
+    // check to see if the shape has gone out of bounds
+    if(shapeX > width)
+    {
+        shapeX = 0;
+    }
+    if(shapeX < 0)
+    {
+        shapeX = width;
+    }
+    if(shapeY > height)
+    {
+        shapeY = 0;
+    }
+    if(shapeY < 0)
+    {
+        shapeY = height;
+    }
+
+    // check tolite
+    if(characterX > width && characterY > width-50)
+    {
+        fill(0);
+        stroke(5);
+        textSize(26);
+        text("You pooped out a skittle!", width/2-50, height/2-70);
+    }
+
+    // poop on click
+    fill(123,92,0);
+    ellipse(mouseShapeX, mouseShapeY, 100,25,)
+    fill (0)
+    text ("use the arrow keys to move");
+}
+
+function mouseClicked()
+{
+    mouseShapeX = mouseX;
+    mouseShapeY = mouseY;
+  
+}
+
+
+/*
+function keyPressed() {
+    if (keyCode === LEFT_ARROW) {
+        characterX -= 10;
+    } 
+    else if (keyCode === RIGHT_ARROW) {
+        characterX += 10;
+    }
+    else if (keyCode === UP_ARROW) {
+        characterY -= 10;
+    }
+    else if (keyCode === DOWN_ARROW) {
+        characterY += 10;
+    }
+  }
+  */</script>
+
+</head>
+
+<body>
+</body>
+
+</html>
