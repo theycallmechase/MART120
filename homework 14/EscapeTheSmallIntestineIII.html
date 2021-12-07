@@ -1,5 +1,5 @@
 var x = 50;
-var y = 50;
+var y = 70;
 var diameter = 25;
 var mousex = 0;
 var mousey = 0;
@@ -7,7 +7,9 @@ var s = 83;
 var w = 87;
 var a = 65;
 var d = 68;
-
+//movement arrays
+   
+//needs to exist for some reason
 var myXs = []; // create an array for the x coordinate
 var myYs = []; // create an array for the y coordinate
 var myDiameters = []; // create array for the diameter of circles
@@ -61,6 +63,17 @@ function setup() {
     myYs[i] = getRandomNumber(600);
     myDiameters[i] = getRandomNumber(100);
   }
+  //pooparray
+  {myXs[0] = 50;
+        myYs[0] = 50;
+        myDiameters[0] = 25;
+        myXs[1] = 160;
+        myYs[1] = 150;
+        myDiameters[1] = 125;
+        myXs[2] = 250;
+        myYs[2] = 250;
+        myDiameters[2] = 75;}
+  
 }
 
 function draw() {
@@ -94,6 +107,16 @@ function draw() {
     fill(200,0,0);
     circle(characterX,characterY,40);
   ellipse(mousex, mousey, 15, 50);
+  // poop1
+    fill(123,92,0);
+    // draw the shape
+    ellipse(shapeX, shapeY, 120,30);
+  
+   // poop2
+  fill (140,100,5)
+  ellipse (x,y,170,100)
+
+  
   
   //movement
    // movement speed
@@ -116,7 +139,7 @@ function draw() {
   
   //poop movement
   
- if (x <= 250) {
+ if (x <= 450) {
     x += 10;
   } else if (x == 250 && x <= 300) {
     x += 2;
@@ -124,6 +147,7 @@ function draw() {
   } else if (x != 300) {
     x = 50;
   }
+  
 
   if (y <= 200) {
     y += 3;
@@ -142,7 +166,7 @@ function draw() {
     diameter = 25;
   }
     
-  //problem area
+ 
    // check tolite
     if(characterX > width && characterY > width-50)
     {
@@ -153,28 +177,22 @@ function draw() {
     }
 
     // poop on click
-  { fill(123,92,0);
+  {
+    fill(123,92,0);
     ellipse(mouseShapeX, mouseShapeY, 100,25,)
     fill (0)
     text ("use the arrow keys to move");
 }
 
-function mouseClicked()
-{
+
     mouseShapeX = mouseX;
     mouseShapeY = mouseY;
   
-}
+
   //end problem area
   
   //last area
   
-function mouseClicked()
-{
-    mouseShapeX = mouseX;
-    mouseShapeY = mouseY;
-  
-}
 
 
 
@@ -213,7 +231,7 @@ function keyPressed() {
 }
 
 /* This function controls all the variables of the circle */
-function controlCircle() {
+function mouseClicked() {
   if (x >= 300) {
     x = 50;
   }
@@ -247,11 +265,6 @@ function changeDiameter() {
   }
 }
 
-function mouseMoved() {
-  mousex = mouseX;
-  mousey = mouseY;
-}
-
 function getRandomNumber(number) {
   return Math.floor(Math.random() * number) + 10;
 }
@@ -270,7 +283,8 @@ function ConcentricCircle(
   inner_blue
 ) {
   fill(outer_red, outer_green, outer_blue);
-  circle(x, y, outer_diameter);
-  fill(inner_red, inner_green, inner_blue);
-  circle(x, y, inner_diameter);
+ ellipse(70,60,50, 45, outer_diameter);
+    
+    
+  
 }
