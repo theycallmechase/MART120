@@ -1,0 +1,276 @@
+var x = 50;
+var y = 50;
+var diameter = 25;
+var mousex = 0;
+var mousey = 0;
+var s = 83;
+var w = 87;
+var a = 65;
+var d = 68;
+
+var myXs = []; // create an array for the x coordinate
+var myYs = []; // create an array for the y coordinate
+var myDiameters = []; // create array for the diameter of circles
+
+
+// x and y for my skittle
+var characterX = 100;
+var characterY = 100;
+// key codes 
+// up key:38,down:40,left:37,right:39
+var up = 38; 
+var down = 40;
+var left = 37;
+var right = 39;
+
+// shape poop 1
+var shapeX = 30;
+var shapeY = 50;
+var shapeXSpeed;
+var shapeYSpeed;
+
+// shape poop 2
+var x = 50;
+var y = 50;
+var diameter = 25;
+
+// poop1
+    fill(123,92,0);
+    // draw the shape
+    ellipse(shapeX, shapeY, 120,30);
+  
+   // poop2
+  fill (140,100,5)
+  ellipse (x,y,170,100)
+
+
+
+// poop on click
+var mouseShapeX;
+var mouseShapeY;
+
+function setup() {
+  createCanvas(500, 600);
+  // create a for loop here to create the circles
+  // what do you need to do to add more circles now?
+  for (var i = 0; i < 2; i++) {
+        shapeXSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+    shapeYSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+    // get all the random numbers to create a circles
+    myXs[i] = getRandomNumber(800);
+    myYs[i] = getRandomNumber(600);
+    myDiameters[i] = getRandomNumber(100);
+  }
+}
+
+function draw() {
+  background(0);
+
+  background(255,193,204);
+    stroke(0);
+    fill(0);
+    // top border and subsequent lines
+    rect(0,0,width,10);
+  rect(0,120,400,10);
+  rect(100,240,400,10);
+  rect(0,360,400,10);
+  rect(100,480,400,10);
+    // left border
+    rect(0,0,10,height);
+    // bottom border
+    rect(0, height-10,width, 10);
+    // right upper border
+    rect(width-10,0,10,height-120);
+
+    // exit message
+    textSize(16);
+    text("this way to small intestine", width-200,height-50)
+  
+    // game title
+    textSize(16);
+    text("escape the large intestine", width-400,height-560)
+
+    //red skittle
+    fill(200,0,0);
+    circle(characterX,characterY,40);
+  ellipse(mousex, mousey, 15, 50);
+  
+  //movement
+   // movement speed
+    if(keyIsDown(up))
+    {
+        characterY -= 2;   
+    }
+    if(keyIsDown(down))
+    {
+        characterY += 4;   
+    }
+    if(keyIsDown(left))
+    {
+        characterX -= 7;   
+    }
+    if(keyIsDown(right))
+    {
+        characterX += 7;   
+    }
+  
+  //poop movement
+  
+ if (x <= 250) {
+    x += 10;
+  } else if (x == 250 && x <= 300) {
+    x += 2;
+    console.log("second else if for x");
+  } else if (x != 300) {
+    x = 50;
+  }
+
+  if (y <= 200) {
+    y += 3;
+  } else if (y == 250 && y <= 300) {
+    y += 1;
+    console.log("second else if for y");
+  } else if (y != 300) {
+    y = 50;
+  }
+  if (diameter <= 200) {
+    diameter += 8;
+  } else if (diameter == 200 && diameter <= 300) {
+    diameter += 2;
+    console.log("second else if for diameter");
+  } else if (diameter != 300) {
+    diameter = 25;
+  }
+    
+  //problem area
+   // check tolite
+    if(characterX > width && characterY > width-50)
+    {
+        fill(0);
+        stroke(5);
+        textSize(26);
+        text("You pooped out a skittle!", width/2-50, height/2-70);
+    }
+
+    // poop on click
+  { fill(123,92,0);
+    ellipse(mouseShapeX, mouseShapeY, 100,25,)
+    fill (0)
+    text ("use the arrow keys to move");
+}
+
+function mouseClicked()
+{
+    mouseShapeX = mouseX;
+    mouseShapeY = mouseY;
+  
+}
+  //end problem area
+  
+  //last area
+  
+function mouseClicked()
+{
+    mouseShapeX = mouseX;
+    mouseShapeY = mouseY;
+  
+}
+
+
+
+function keyPressed() {
+    if (keyCode === LEFT_ARROW) {
+        characterX -= 10;
+    } 
+    else if (keyCode === RIGHT_ARROW) {
+        characterX += 10;
+    }
+    else if (keyCode === UP_ARROW) {
+        characterY -= 10;
+    }
+    else if (keyCode === DOWN_ARROW) {
+        characterY += 10;
+    }
+  }
+  //end my code last area
+  
+  // does this need to change if you add more circles?
+  for (var i = 0; i < myXs.length; i++) {
+    // concentric circle randomly using arrays
+    ConcentricCircle(
+      myXs[i],
+      myYs[i],
+      myDiameters[i],
+      myDiameters[i] / 2,
+      50,
+      120,
+      120,
+      120,
+      50,
+      120
+    );
+  }
+}
+
+/* This function controls all the variables of the circle */
+function controlCircle() {
+  if (x >= 300) {
+    x = 50;
+  }
+
+  if (y >= 300) {
+    y = 50;
+  }
+
+  if (keyIsDown(s)) {
+    y += 10;
+  } else if (keyIsDown(w)) {
+    y -= 10;
+  }
+
+  if (keyIsDown(d)) {
+    x += 10;
+  } else if (keyIsDown(a)) {
+    x -= 10;
+  }
+
+  // we call the function here.
+  changeDiameter();
+}
+
+// This function updates the size of the circle
+function changeDiameter() {
+  if (diameter < 200) {
+    diameter += 2;
+  } else if (diameter >= 200) {
+    diameter = 25;
+  }
+}
+
+function mouseMoved() {
+  mousex = mouseX;
+  mousey = mouseY;
+}
+
+function getRandomNumber(number) {
+  return Math.floor(Math.random() * number) + 10;
+}
+
+// define ConcentricCircle function
+function ConcentricCircle(
+  x,
+  y,
+  outer_diameter,
+  inner_diameter,
+  outer_red,
+  outer_green,
+  outer_blue,
+  inner_red,
+  inner_green,
+  inner_blue
+) {
+  fill(outer_red, outer_green, outer_blue);
+  circle(x, y, outer_diameter);
+  fill(inner_red, inner_green, inner_blue);
+  circle(x, y, inner_diameter);
+}
