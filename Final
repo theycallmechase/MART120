@@ -1,0 +1,194 @@
+
+
+var shapeXs = [];
+var shapeYs = [];
+var diameters = [];
+
+var shapeXSpeeds = [];
+var shapeYSpeeds = [];
+
+// create a shape when the mouse is clicked
+
+
+function setup() {
+    createCanvas(500, 500);
+    // get a random speed when the it first starts
+    for (var i = 0; i < 1; i++) {
+        shapeXSpeeds[i] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+        shapeYSpeeds[i] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+      shapeXs[0] = 53
+        shapeYs[0] = 250;
+      shapeXs[1] = 76
+        shapeYs[1] = 250;
+      shapeXs[2] = 100
+        shapeYs[2] = 250;
+      shapeXs[3] = 125
+        shapeYs[3] = 250;
+      shapeXs[4] = 140
+        shapeYs[4] = 250;
+       shapeXs[5] = 160
+        shapeYs[5] = 250;
+      shapeXs[6] = 183
+        shapeYs[6] = 250;
+      shapeXs[7] = 205
+        shapeYs[7] = 250;
+      shapeXs[8] = 215
+        shapeYs[8] = 250;
+      shapeXs[9] = 240
+        shapeYs[9] = 250;
+       shapeXs[10] = 255
+        shapeYs[00] = 250;
+      shapeXs[11] = 277
+        shapeYs[11] = 250;
+      shapeXs[12] = 295
+        shapeYs[12] = 250;
+      shapeXs[13] = 333
+        shapeYs[13] = 250;
+      shapeXs[14] = 367
+        shapeYs[14] = 250;
+      shapeXs[15] = 384
+        shapeYs[15] = 250;
+         // 0text("a",53,250)
+        //  1text("p",76,250)
+        //  2text("p",100,250)
+        //  3text("r",125,250)
+        //  4text("o",140,250)
+        //  5text("p",160,250)
+        //  6text("r",183,250)
+        //  7text("i",205,250)
+        //  8text("a",215,250)
+        //  9text("t",240,250)
+        //  10text("e",255,250)
+         // 11text("l",277,250)
+         // 12text("y",295,250)
+         // 13text("B",333,250)
+        //  14text("i",367,250)
+        //  15text("g",384,250)    
+    }
+
+    createCharacter(200, 350);
+}
+
+function draw() {
+    background(249, 229, 188);
+    stroke(0);
+    fill(0);
+
+    // call createBorders function
+   
+
+    // exit message
+   
+   textSize(50)
+           textFont('Segoe Script');
+    
+
+    //createCharacter(200,350);
+    drawCharacter();
+    characterMovement();
+
+
+    // potential enemy color
+    fill(130, 145, 140);
+    // draw the shape
+    for (var i = 0; i < shapeXs.length; i++) {
+        text("", shapeXs[i], shapeYs[i], diameters[i]);
+       text("", shapeXs[i]+=8, shapeYs[i], diameters[i]);
+     
+        text("a",shapeXs[0],shapeYs[0])
+        text("p",shapeXs[1],shapeYs[1])
+        text("p",shapeXs[2],shapeYs[2])
+        text("r",shapeXs[3],shapeYs[3])
+        text("o",shapeXs[4],shapeYs[4])
+        text("p",shapeXs[5],shapeYs[5])
+        text("r",shapeXs[6],shapeYs[6])
+        text("i",shapeXs[7],shapeYs[7])
+        text("a",shapeXs[8],shapeYs[8])
+        text("t",shapeXs[9],shapeYs[9])
+       text("e",shapeXs[10],shapeYs[10])
+       text("l",shapeXs[11],shapeYs[11])
+       text("y",shapeXs[12],shapeYs[12])
+       text("B",shapeXs[13],shapeYs[13])
+       text("i",shapeXs[14],shapeYs[14])
+       text("g",shapeXs[15],shapeYs[15])
+      
+        shapeXSpeeds[0] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + -8.5);
+        shapeYSpeeds[0] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 0);
+         shapeXSpeeds[1] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + -8.5);
+        shapeYSpeeds[1] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 0);
+      shapeXSpeeds[2] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + -8.5);
+        shapeYSpeeds[2] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 0);
+         shapeXSpeeds[3] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + -8.5);
+        shapeYSpeeds[3] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 0);
+      shapeXSpeeds[4] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + -8.5);
+        shapeYSpeeds[4] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 0);
+         shapeXSpeeds[5] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + -8.5);
+        shapeYSpeeds[5] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 0);
+      shapeXSpeeds[6] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + -8.5);
+        shapeYSpeeds[6] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 0);
+         shapeXSpeeds[7] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + -8.5);
+        shapeYSpeeds[7] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 0);
+      shapeXSpeeds[8] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + -8.5);
+        shapeYSpeeds[8] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 0);
+         shapeXSpeeds[9] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + -8.5);
+        shapeYSpeeds[9] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 0);
+      shapeXSpeeds[10] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + -8.5);
+        shapeYSpeeds[10] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 0);
+         shapeXSpeeds[11] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + -8.5);
+        shapeYSpeeds[11] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 0);
+      shapeXSpeeds[10] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + -8.5);
+        shapeYSpeeds[10] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 0);
+         shapeXSpeeds[11] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + -8.5);
+        shapeYSpeeds[11] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 0);
+      shapeXSpeeds[12] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + -8.5);
+        shapeYSpeeds[12] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 0);
+         shapeXSpeeds[13] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + -8.5);
+        shapeYSpeeds[13] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 0);
+      shapeXSpeeds[14] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + -8.5);
+        shapeYSpeeds[14] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 0);
+         shapeXSpeeds[15] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + -8.5);
+        shapeYSpeeds[15] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 0);
+     
+      
+      
+function mouseClicked() {
+   callText("test", shapeXs[i]+=8, shapeYs[i], diameters[i]);
+}
+
+
+
+        // move the shape
+        shapeXs[i] += shapeXSpeeds[i];
+        shapeYs[i] += shapeYSpeeds[i];
+        // check to see if the shape has gone out of bounds
+        if (shapeXs[i] > width) {
+            shapeXs[i] = 0;
+        }
+        if (shapeXs[i] < 0) {
+            shapeXs[i] = width;
+        }
+        if (shapeYs[i] > height) {
+            shapeYs[i] = 0;
+        }
+        if (shapeYs[i] < 0) {
+            shapeYs[i] = height;
+        }
+    }
+
+}
+
+function characterMovement() {
+
+}
+
+function createCharacter(x, y) {
+ 
+}
+
+function drawCharacter() {
+   
+}
+
+function getRandomNumber(number) {
+    return Math.floor(Math.random() * number) + 10;
+}
