@@ -1,5 +1,5 @@
 var x = 50;
-var y = 70;
+var y = 170;
 var diameter = 25;
 var mousex = 0;
 var mousey = 0;
@@ -25,25 +25,32 @@ var down = 40;
 var left = 37;
 var right = 39;
 
-// shape poop 1
+// poops
+
 var shapeX = 30;
-var shapeY = 50;
+var shapeY = 170;
 var shapeXSpeed;
 var shapeYSpeed;
 
+var shapeXs = [];
+var shapeYs = [];
+var diameters = [];
+
+var shapeXSpeeds = [];
+var shapeYSpeeds = [];
+
+
 // shape poop 2
 var x = 50;
-var y = 50;
-var diameter = 25;
+var y = 70;
+var diameter = 35;
 
-// poop1
-    fill(123,92,0);
-    // draw the shape
-    ellipse(shapeX, shapeY, 120,30);
+var x1 = 100
+var x2 = 30
+
+
   
-   // poop2
-  fill (140,100,5)
-  ellipse (x,y,170,100)
+
 
 
 
@@ -55,19 +62,18 @@ function setup() {
   createCanvas(500, 600);
   // create a for loop here to create the circles
   // what do you need to do to add more circles now?
-  for (var i = 0; i < 2; i++) {
-        shapeXSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
-    shapeYSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
-    // get all the random numbers to create a circles
-    myXs[i] = getRandomNumber(800);
-    myYs[i] = getRandomNumber(600);
-    myDiameters[i] = getRandomNumber(100);
-  }
+  for (var i = 0; i < 40; i++) {
+        shapeXSpeeds[i] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+        shapeYSpeeds[i] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+        shapeXs[i] = getRandomNumber(500);
+        shapeYs[i] = getRandomNumber(600);
+        diameters[i] = getRandomNumber(30);
+    }
   //pooparray
   {myXs[0] = 50;
         myYs[0] = 50;
         myDiameters[0] = 25;
-        myXs[1] = 160;
+        myXs[1] = 260;
         myYs[1] = 150;
         myDiameters[1] = 125;
         myXs[2] = 250;
@@ -106,16 +112,49 @@ function draw() {
     //red skittle
     fill(200,0,0);
     circle(characterX,characterY,40);
-  ellipse(mousex, mousey, 15, 50);
-  // poop1
-    fill(123,92,0);
-    // draw the shape
-    ellipse(shapeX, shapeY, 120,30);
+
+  // poop storm
   
-   // poop2
+    fill(139, 69, 19);
+    // draw the shape
+    for (var i = 0; i < shapeXs.length; i++) {
+        circle(shapeXs[i], shapeYs[i], diameters[i]);
+        shapeXSpeeds[i] = Math.floor(Math.random() * (Math.floor(Math.random() * 16)) + 1);
+        shapeYSpeeds[i] = Math.floor(Math.random() * (Math.floor(Math.random() * 15)) + 1);
+
+
+
+
+        // move the shape
+        shapeXs[i] += shapeXSpeeds[i];
+        shapeYs[i] += shapeYSpeeds[i];
+        // check to see if the shape has gone out of bounds
+        if (shapeXs[i] > width) {
+            shapeXs[i] = 0;
+        }
+        if (shapeXs[i] < 0) {
+            shapeXs[i] = width;
+        }
+        if (shapeYs[i] > height) {
+            shapeYs[i] = 0;
+        }
+        if (shapeYs[i] < 0) {
+            shapeYs[i] = height;
+        }
+    }
+    // draw the shape
+  
+   
+  
+   // poop moving
   fill (140,100,5)
   ellipse (x,y,170,100)
-
+  fill (110,100,50)
+  ellipse (x,300,130,10)
+  fill (140,100,50)
+  ellipse (x,400,150,50)
+  fill (140,70,50)
+  ellipse (x,200,150,50)
   
   
   //movement
@@ -189,9 +228,9 @@ function draw() {
     mouseShapeY = mouseY;
   
 
-  //end problem area
+ 
   
-  //last area
+
   
 
 
@@ -283,8 +322,11 @@ function ConcentricCircle(
   inner_blue
 ) {
   fill(outer_red, outer_green, outer_blue);
- ellipse(70,60,50, 45, outer_diameter);
+ 
     
     
   
 }
+
+
+
